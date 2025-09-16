@@ -34,7 +34,7 @@ class Cliente:
         }
         return dic
     @staticmethod
-    def from_jdon(dic):
+    def from_json(dic):
         return Cliente(
             dic['id'],
             dic['nome'],
