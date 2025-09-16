@@ -3,7 +3,7 @@ class Cliente:
         self.set_id(id)
         self.set_nome(nome)
         self.set_email(email)
-        self.set_telefone(fone)
+        self.set_fone(fone)
     
     def set_id(self, id):
         self.__id = id
@@ -30,7 +30,7 @@ class Cliente:
             'id':self.__id,
             'nome':self.__nome,
             'email':self.__email,
-            'telefone':self._fone
+            'fone':self.__fone
         }
         return dic
     @staticmethod
