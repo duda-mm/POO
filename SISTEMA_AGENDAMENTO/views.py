@@ -1,5 +1,6 @@
 from models.cliente import Cliente, ClienteDAO
 from models.servico import Servico, ServicoDAO
+from models.horario import Horario, HorarioDAO
 
 class View:
     def cliente_listar():
@@ -31,3 +32,14 @@ class View:
     def servico_excluir(id):
         servico = Servico(id, "0", 1)
         ServicoDAO.excluir(servico)
+
+    def horario_atualizar(id, data, confirmado, id_cliente, id_servico):
+        c = Horario(id, data)
+        c.set_confirmado(confirmado)
+        c.set_id_cliente(id_cliente)
+        c.set_id_servico(id_servico)
+        HorarioDAO.atualizar(c)
+
+    def horario_excluir(id):
+        c = Horario(id, None)
+        HorarioDAO.excluir(c)
