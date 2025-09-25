@@ -23,7 +23,7 @@ class ManterServicoUI:
 
     def inserir():
         descricao = st.text_input("Informe a descrição")
-        valor = st.text_input("Informe o valor")
+        valor = st.number_input("Informe o valor")
         if st.button("Inserir"):
             View.servico_inserir(descricao, valor)
             st.success("Serviço inserido com sucesso")
