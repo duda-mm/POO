@@ -1,9 +1,10 @@
 class Cliente:
-    def __init__(self, id, nome, email, fone):
+    def __init__(self, id, nome, email, fone, senha):
         self.set_id(id)
         self.set_nome(nome)
         self.set_email(email)
         self.set_fone(fone)
+        self.set_senha(senha)
     
     def set_id(self, id):
         if id < 0: raise ValueError('Id inválido')
@@ -29,15 +30,22 @@ class Cliente:
     def get_fone(self):
         return self.__fone
     
+    def set_senha(self, senha):
+        if senha == ' ': raise ValueError('Senha inválida')
+        self.__senha = senha
+    def get_senha(self):
+        return self.__senha
+    
     def __str__(self):
-        return f'ID - {self.__id} | NOME - {self.__nome} | EMAIL - {self.__email} | TELEFONE - {self.__fone}'
+        return f'ID - {self.__id} | NOME - {self.__nome} | EMAIL - {self.__email} | TELEFONE - {self.__fone} | SENHA - {self.__senha}'
     
     def to_json(self):
         dic = {
             'id':self.__id,
             'nome':self.__nome,
             'email':self.__email,
-            'fone':self.__fone
+            'fone':self.__fone,
+            'senha':self.__senha
         }
         return dic
     
@@ -48,6 +56,7 @@ class Cliente:
             dic['nome'],
             dic['email'],
             dic['fone'],
+            dic['senha']
         )
     
 import json
